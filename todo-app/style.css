@@ -1,29 +1,171 @@
+/* Page layout */
+
 body{
-font-family: Arial;
-background:#f4f4f4;
+font-family: "Segoe UI", Arial;
+background: linear-gradient(135deg,#667eea,#764ba2);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:0;
 }
 
-.container{
-width:400px;
-margin:50px auto;
+/* App Card */
+
+.app{
+width:420px;
 background:white;
-padding:20px;
-border-radius:8px;
+padding:25px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
+
+/* Title */
+
+h2{
+margin:0 0 15px 0;
+text-align:center;
+color:#333;
+}
+
+/* Input Row */
+
+.input-row{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+/* Input */
 
 input{
-width:70%;
+flex:1;
 padding:10px;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:14px;
+outline:none;
+transition:0.2s;
 }
 
-button{
-padding:10px;
+input:focus{
+border-color:#667eea;
+box-shadow:0 0 5px rgba(102,126,234,0.4);
 }
+
+/* Add Button */
+
+#addBtn{
+background:#667eea;
+color:white;
+border:none;
+padding:10px 14px;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+transition:0.2s;
+}
+
+#addBtn:hover{
+background:#5563d1;
+}
+
+/* Task list */
+
+ul{
+list-style:none;
+padding:0;
+margin:0;
+}
+
+/* Task item */
 
 li{
-margin-top:10px;
-padding:8px;
-background:#eee;
 display:flex;
 justify-content:space-between;
+align-items:center;
+padding:12px;
+border-radius:6px;
+margin-bottom:10px;
+background:#f6f7fb;
+transition:0.25s;
+}
+
+/* Hover effect */
+
+li:hover{
+background:#eceefc;
+transform:translateY(-2px);
+}
+
+/* Task text */
+
+li span{
+flex:1;
+}
+
+/* Completed task */
+
+li.completed span{
+text-decoration:line-through;
+color:#888;
+}
+
+/* Buttons container */
+
+li div{
+display:flex;
+gap:6px;
+}
+
+/* Buttons */
+
+button{
+border:none;
+padding:6px 10px;
+border-radius:5px;
+cursor:pointer;
+font-size:12px;
+transition:0.2s;
+}
+
+/* Toggle */
+
+.complete{
+background:#2ecc71;
+color:white;
+}
+
+.complete:hover{
+background:#27ae60;
+}
+
+/* Edit */
+
+.edit{
+background:#f39c12;
+color:white;
+}
+
+.edit:hover{
+background:#d68910;
+}
+
+/* Delete */
+
+.delete{
+background:#e74c3c;
+color:white;
+}
+
+.delete:hover{
+background:#c0392b;
+}
+
+/* Delete animation */
+
+.fade-out{
+opacity:0;
+transform:translateX(50px);
+transition:0.3s;
 }
