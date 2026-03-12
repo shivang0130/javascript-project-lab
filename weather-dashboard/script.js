@@ -4,7 +4,7 @@ const weatherResult = document.getElementById("weatherResult")
 const loading = document.getElementById("loading")
 const forecastContainer = document.getElementById("forecast")
 
-const apiKey = "a35fcbb0e89986c516b3143fe34f7e83"
+const apiKey = "YOUR_API_KEY"
 
 async function getWeather(city) {
 
