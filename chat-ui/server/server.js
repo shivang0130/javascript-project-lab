@@ -12,15 +12,29 @@ wss.on("connection", (ws) => {
 
     ws.on("message", (message) => {
 
-        clients.forEach(client => {
+        try {
 
-            if (client.readyState === WebSocket.OPEN) {
+            const parsedMessage = JSON.parse(message)
 
-                client.send(message.toString())
+            console.log(
+                `Message from client ${parsedMessage.clientId}: ${parsedMessage.text}`
+            )
 
-            }
+            clients.forEach(client => {
 
-        })
+                if (client.readyState === WebSocket.OPEN) {
+
+                    client.send(JSON.stringify(parsedMessage))
+
+                }
+
+            })
+
+        } catch (err) {
+
+            console.error("Invalid message received:", message)
+
+        }
 
     })
 
