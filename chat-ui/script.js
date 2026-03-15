@@ -6,6 +6,22 @@ const chatMessages = document.getElementById("chatMessages")
 const input = document.getElementById("messageInput")
 const sendBtn = document.getElementById("sendBtn")
 
+const clientId = crypto.randomUUID()
+
+const socket = new WebSocket("ws://localhost:3000")
+
+socket.addEventListener("message", (event) => {
+
+    const message = JSON.parse(event.data)
+
+    message.sender = message.clientId === clientId ? "sent" : "received"
+
+    state.messages.push(message)
+
+    render()
+
+})
+
 function render() {
 
     chatMessages.innerHTML = ""
@@ -27,8 +43,6 @@ function render() {
 
     scrollToBottom()
 
-    saveMessages()
-
 }
 
 function sendMessage(text) {
@@ -36,15 +50,11 @@ function sendMessage(text) {
     const message = {
         id: Date.now(),
         text: text,
-        sender: "sent",
+        clientId: clientId,
         timestamp: new Date().toLocaleTimeString()
     }
 
-    state.messages.push(message)
-
-    render()
-
-    simulateReply()
+    socket.send(JSON.stringify(message))
 
 }
 
@@ -76,27 +86,3 @@ function scrollToBottom() {
 
 }
 
-function simulateReply() {
-
-    setTimeout(() => {
-
-        const reply = {
-            id: Date.now(),
-            text: "Got your message 👍",
-            sender: "received",
-            timestamp: new Date().toLocaleTimeString()
-        }
-
-        state.messages.push(reply)
-
-        render()
-
-    }, 1000)
-
-}
-
-function saveMessages() {
-
-    localStorage.setItem("chatMessages", JSON.stringify(state.messages))
-
-}
