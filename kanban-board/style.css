@@ -1,0 +1,165 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI", Arial, sans-serif;
+}
+
+/* Page */
+
+body{
+background:#f4f6fb;
+padding:40px;
+}
+
+/* Title */
+
+h1{
+text-align:center;
+margin-bottom:30px;
+color:#333;
+}
+
+/* Task Input */
+
+.task-input{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:30px;
+}
+
+.task-input input{
+padding:10px 14px;
+border:1px solid #ccc;
+border-radius:6px;
+width:260px;
+font-size:14px;
+outline:none;
+transition:0.2s;
+}
+
+.task-input input:focus{
+border-color:#4c7dff;
+box-shadow:0 0 4px rgba(76,125,255,0.3);
+}
+
+.task-input button{
+padding:10px 16px;
+border:none;
+border-radius:6px;
+background:#4c7dff;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.2s;
+}
+
+.task-input button:hover{
+background:#3a65e0;
+}
+
+/* Board */
+
+.board{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+}
+
+/* Columns */
+
+.column{
+background:white;
+width:260px;
+padding:15px;
+border-radius:10px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+transition:0.2s;
+}
+
+.column:hover{
+transform:translateY(-4px);
+}
+
+.column h2{
+font-size:18px;
+margin-bottom:10px;
+color:#444;
+}
+
+/* Task List */
+
+.task-list{
+min-height:220px;
+padding:5px;
+}
+
+/* Task Card */
+
+.task{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#f1f5ff;
+padding:10px;
+margin:8px 0;
+border-radius:6px;
+cursor:grab;
+transition:0.2s;
+}
+
+.task:hover{
+background:#e2ebff;
+transform:scale(1.02);
+}
+
+/* Task Text */
+
+.task-text{
+flex:1;
+cursor:pointer;
+font-size:14px;
+color:#333;
+}
+
+/* Delete Button */
+
+.delete-btn{
+background:#ff4d4d;
+border:none;
+color:white;
+padding:4px 8px;
+border-radius:4px;
+cursor:pointer;
+font-size:12px;
+margin-left:8px;
+transition:0.2s;
+}
+
+.delete-btn:hover{
+background:#d93636;
+}
+
+/* Edit Input */
+
+.edit-input{
+width:100%;
+padding:6px;
+border:1px solid #ccc;
+border-radius:4px;
+font-size:14px;
+outline:none;
+}
+
+/* Drag Visual Feedback */
+
+.task:active{
+cursor:grabbing;
+}
+
+.task-list.drag-over{
+background:#eef3ff;
+border-radius:6px;
+}

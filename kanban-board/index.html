@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Kanban Board</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Kanban Task Board</h1>
+
+<div class="task-input">
+<input type="text" id="taskInput" placeholder="Enter new task">
+<button id="addTaskBtn">Add Task</button>
+</div>
+
+<div class="board">
+
+<div class="column" data-status="todo">
+<h2>Todo</h2>
+<div class="task-list" id="todo"></div>
+</div>
+
+<div class="column" data-status="progress">
+<h2>In Progress</h2>
+<div class="task-list" id="progress"></div>
+</div>
+
+<div class="column" data-status="done">
+<h2>Done</h2>
+<div class="task-list" id="done"></div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
